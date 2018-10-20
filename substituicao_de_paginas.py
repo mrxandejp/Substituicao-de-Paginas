@@ -46,23 +46,19 @@ def OTM(tamanho_quadro, referencia):
                 cont = 0
                 for i in range(x, len(referencia)):
                     if quadro[y] == referencia[i]:
-                        continue
+                        distante.append(cont)
+                        break
                         pass
                     cont+=1
                     pass
-                distante.append(cont)
-                pass
-
-            for y in range(len(referencia) - x):
-                if y in distante:
-                    ind = distante.index(y)
+                if cont == (len(referencia) - x):
+                    distante.append(1000)
                     pass
                 pass
-            print(distante, ind)
+            ind = distante.index(max(distante, key=int))
             quadro[ind] = referencia[x]
             del distante
             pass
-        #print(quadro)
         faltas_de_paginas+=1
         pass
     print("OTM:", faltas_de_paginas)    
@@ -90,4 +86,42 @@ insertionSort()
 fcfs()
 sjf()
 rr()
+'''
+'''
+4
+1
+2
+3
+4
+1
+2
+5
+1
+2
+3
+4
+5
+'''
+'''
+3
+7
+0
+1
+2
+0
+3
+0
+4
+2
+3
+0
+3
+2
+1
+2
+0
+1
+7
+0
+1
 '''
