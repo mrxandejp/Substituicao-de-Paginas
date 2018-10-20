@@ -1,7 +1,6 @@
 
 
 
-
 def FIFO(tamanho_quadro, referencia):
     quadro = []
     faltas_de_paginas = 0
@@ -64,6 +63,36 @@ def OTM(tamanho_quadro, referencia):
     print("OTM:", faltas_de_paginas)    
     pass
 
+def LRU(tamanho_quadro, referencia):
+    quadro = []
+    faltas_de_paginas = 0
+    contador = []
+
+    for x in range(len(referencia)):
+        if referencia[x] in quadro:
+            ind = quadro.index(referencia[x])
+            contador[ind] = 0
+            pass
+        else:    
+            if len(quadro) < tamanho_quadro:
+                quadro.append(referencia[x])
+                contador.append(0)
+                pass
+            else:
+                ind = contador.index(max(contador, key=int))
+                quadro[ind] = referencia[x]
+                contador[ind] = 0
+                pass  
+            faltas_de_paginas+=1
+            pass        
+        
+        for y in range(len(contador)):
+            contador[y] += 1
+            pass
+        pass 
+
+    print("LRU:", faltas_de_paginas)
+    pass
 
 #Corpo principal
 #Lendo o arquivo de instâncias para pegar os processos
@@ -80,6 +109,7 @@ del referencia[0]
 
 FIFO(tamanho_quadro, referencia)
 OTM(tamanho_quadro, referencia)
+LRU(tamanho_quadro, referencia)
 ''' 
 insertionSort()
 
