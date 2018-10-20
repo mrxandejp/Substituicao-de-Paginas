@@ -106,10 +106,17 @@ ref_arquivo.close()
 
 tamanho_quadro = referencia[0]
 del referencia[0]
-
-FIFO(tamanho_quadro, referencia)
-OTM(tamanho_quadro, referencia)
-LRU(tamanho_quadro, referencia)
+    
+if tamanho_quadro == 0:
+    print("FIFO: 0")
+    print("OTM: 0")
+    print("LRU: 0")
+    pass 
+else:    
+    FIFO(tamanho_quadro, referencia)
+    OTM(tamanho_quadro, referencia)
+    LRU(tamanho_quadro, referencia)
+    pass    
 ''' 
 insertionSort()
 
